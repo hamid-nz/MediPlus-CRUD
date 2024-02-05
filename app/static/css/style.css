@@ -45,6 +45,7 @@ Version:	1.1
 * About Us CSS
 * Footer CSS
 ========================================*/ 
+
 /*=============================
 	Global CSS 
 ===============================*/
@@ -52,7 +53,12 @@ body{
     font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size:14px;
-	color:#888;
+	color:#656464;
+}
+p{
+	font-weight: 400;
+	font-size:14px;
+	color:#656464;
 }
 .pro-features {
 	position: fixed;

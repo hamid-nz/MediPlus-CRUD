@@ -18,10 +18,14 @@ class Home(TemplateView):
 class Contact(TemplateView):
     template_name = 'app/contact.html'
     
-class SinglePage(TemplateView):
-    template_name = 'app/single-page.html'
     
 class ListPage(ListView):
     context_object_name= 'obj'
     model= Page
     template_name= 'app/list.html'
+
+# Used Functional views for single detail page
+def PageDetail(request, url):
+    pagedetail= Page.objects.get(url=url)
+    print(pagedetail)  
+    return render(request, 'app/single-page.html', {'pagedetail': pagedetail} )

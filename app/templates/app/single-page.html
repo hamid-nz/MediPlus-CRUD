@@ -1,17 +1,16 @@
 {% extends "app/base.html" %}
 {% load static %}
-{% block title %} Page Title {% endblock %}
+{% block title %} {{pagedetail.title}} {% endblock %}
 {% block body %}
 
-
-<section class="call-action overlay" data-stellar-background-ratio="0.5">
+ 
+ <section class="call-action overlay" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="content">
-                    <h2>Women Health Care</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis nec
-                        gravida.</p>
+                    <h1 class="text-white">{{pagedetail.title}}</h1>
+                    <p>{{pagedetail.discription}}</p>
                     <div class="button">
                         <a href="#" class="btn">Get Appointment</a>
                         <a href="#" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a>
@@ -20,53 +19,36 @@
             </div>
         </div>
     </div>
-</section>
+ </section>
 
-<div class="container my-3">
-    <p> uiduiui women health ihsc hionklndih huihsuihn
+ <div class="container my-3">
+    <h2 class="my-3" >{{pagedetail.h2}}
+    </h2>
+    <p> {{pagedetail.content}}
     </p>
-</div>
-
-<div class="container my-4">
-    <h3 class="text-center">Women health care Services</h3>
+ </div>
+ 
+ <div class="container my-4">
+    <h3 class="text-center">{{pagedetail.h3}}</h3>
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-7 p-4">
             <div class="text">
-                <h4>We Provide Medical Services</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus
-                    libero eu, gravida quam. </p>
+                <h4>{{pagedetail.h4}}</h4>
+                <p>{{pagedetail.second_content}} </p>
                 <div class="button text-white">
                     <a href="#" class="btn">Schedule Appointment</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-7">
-
+        <div class="col-lg-5 p-4">
+            <img style="width:500px; height:45vh" src='/media/{{pagedetail.image}}' alt="" >
         </div>
-        </div>
-
     </div>
-</div>
+ 
+ </div>
+ </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% for i in obj %}
-<p>{{i.page_title}}
-</p>
-{% endfor %}
 
 
 {% endblock %}
