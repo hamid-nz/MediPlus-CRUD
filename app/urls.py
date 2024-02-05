@@ -6,7 +6,7 @@ urlpatterns = [
     path('', Home.as_view() ),
     path('contact/', Contact.as_view() ),
     path('list/', ListPage.as_view() ),
-    path('page/<slug:url>/', views.PageDetail, name='page-detail'),
+    path('treatment/<slug:url>/', views.PageDetail, name='page-detail'),
 
 
 ]
