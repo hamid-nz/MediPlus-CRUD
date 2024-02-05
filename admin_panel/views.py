@@ -11,7 +11,6 @@ from django.views.generic import(
 ) 
 from .models import Page
 
-
 def AdminHome(request):
     return render(request, 'admin_panel/base.html')
 
