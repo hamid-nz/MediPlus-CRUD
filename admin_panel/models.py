@@ -1,8 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
 from django.utils import timezone
-# from datetime import datetime
-
 
 class Page(models.Model):
     #pk
@@ -17,10 +15,7 @@ class Page(models.Model):
     image= models.ImageField(upload_to='img/', blank=True, default='')
     url= models.CharField('Slug', max_length=100)
     published_date= models.DateTimeField(default=timezone.now() )
-    
-    class Meta:
-        # data_table = 'pages'
-        pass     
+       
     def __str__ (self):
         return self.title
 

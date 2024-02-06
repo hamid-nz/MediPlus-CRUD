@@ -1,8 +1,8 @@
 {% extends "admin_panel/base.html"%}
-{% block title %} Add New Service {% endblock %}
+{% block title %} Add New Page {% endblock %}
 {% block body %}  
 <div class="container">
-    <h1>Create....</h1>
+    <h1>Login</h1>
     <form action="" method="POST">
       {%csrf_token%}
       {{form.as_p}}

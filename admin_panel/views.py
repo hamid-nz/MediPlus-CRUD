@@ -15,12 +15,11 @@ def AdminHome(request):
     return render(request, 'admin_panel/base.html')
 
 class CreatePage(CreateView):
-    template_name= 'admin_panel/add.html'
+    template_name= 'admin_panel/add-page.html'
     model = Page
     fields= '__all__'
     success_url = reverse_lazy('pages-list')
     
-
 class ListPage(ListView):
     model= Page
     template_name= 'admin_panel/list-page.html'
@@ -37,28 +36,36 @@ class DeletePage(DeleteView):
     model = Page
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('pages-list')
-    template_name= 'admin_panel/delete.html'
+    template_name= 'admin_panel/delete-page.html'
     
 class EditPage(UpdateView):
     model= Page
-    template_name= 'admin_panel/edit.html'
+    template_name= 'admin_panel/edit-page.html'
     fields= '__all__'   
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('pages-list')
     
 # TopCards -----------
-class ListCard(ListView):
+class ListView(ListView):
     model= TopCard 
-    template_name= 'admin_panel/list-card.html'
+    template_name= 'admin_panel/list.html'
     
     def get(self, request):
         cards = TopCard.objects.all()
         my_dict = {
             'cards': cards
         }
-        return render(request, 'admin_panel/list-card.html', my_dict )
-
-
+        return render(request, 'admin_panel/list.html', my_dict )
+    
+class CreateView(CreateView):
+    template_name= 'admin_panel/add.html'
+    model = TopCard
+    fields= '__all__'
+    success_url = reverse_lazy('list')
+    
+    def form_valid(self, form):
+        # Custom logic for the first form
+        return super().form_valid(form)
 
 
 
