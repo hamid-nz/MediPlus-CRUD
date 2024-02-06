@@ -84,7 +84,7 @@ class HomePageContent(models.Model):
     #Feature Service Batch - 2  
     batch_2_heading= models.CharField('batch 2 heading', max_length=100 , blank=True) 
     batch_2_price= models.CharField('batch 2 price', max_length=100 , blank=True) 
-    batch_3_content= models.CharField('batch 2 content', max_length=1000 , blank=True) 
+    batch_2_content= models.CharField('batch 2 content', max_length=1000 , blank=True) 
     #Feature Service Batch - 3  
     batch_3_heading= models.CharField('batch 3 heading', max_length=100 , blank=True) 
     batch_3_price= models.CharField('batch 3 price', max_length=100 , blank=True) 
@@ -93,3 +93,21 @@ class HomePageContent(models.Model):
     def __str__ (self):
          return self.title
     
+class Appointment(models.Model):
+    #pk
+    name= models.CharField('Name', max_length=100, blank=True)
+    email= models.EmailField('E Mail', max_length=100, default="")
+    phone= models.IntegerField('Phone', max_length=11, default="")
+    DEPARTMENT = {
+        "Dentistry": "dentistry",
+        "Crdiology": "cardiology",
+        "Childrens": "childrens",
+        "Pet Care": "pet care",
+        "OPD": "opd", 
+     }
+    # published_date= models.DateTimeField(default="")
+    department = models.CharField(choices=DEPARTMENT, max_length=10)
+    message = models.CharField('Your Message', max_length=500, blank=True)
+    
+    def __str__ (self):
+         return self.name

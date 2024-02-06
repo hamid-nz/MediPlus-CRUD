@@ -5,12 +5,13 @@ from .views import (
     ListPage,
     EditPage,
     DeletePage,
-    # ListCard, 
-    # CreateCard,
-    # EditCard,
     HomeList,
     HomeCreate,
-    HomeEdit
+    HomeEdit,
+    CreateAppointment,
+    ListAppointment,
+    EditAppointment,
+    DeleteAppointment,
 )
 urlpatterns = [
     # pages CRUD
@@ -19,14 +20,17 @@ urlpatterns = [
     path('pages/', ListPage.as_view() , name='pages-list'),
     path('edit-page/<int:pk>/', EditPage.as_view() , name='edit-page'),
     path('delete-page/<int:pk>/', DeletePage.as_view() , name='delete-page'),
-    #Top Cards CRUD
-    # path('cards/', ListCard.as_view() , name='cards-list'),
-    # path('add-card/', CreateCard.as_view() , name='add-card'),
-    # path('edit-card/<int:pk>/', EditCard.as_view() , name='edit-card'),
+    
     #HomePgeContent CRUD
     path('list/', HomeList.as_view() , name='list'),
     path('add/', HomeCreate.as_view() , name='add'),
     path('edit/<int:pk>/', HomeEdit.as_view() , name='edit'),
+    
+    #Appointment CRUD
+    path('appointment/', ListAppointment.as_view() , name='appointment-list'),
+    path('add-appointment/', CreateAppointment.as_view() , name='add-appointment'),
+    path('edit-appointment/<int:pk>/', EditAppointment.as_view() , name='edit-appointment'),
+    path('delete-appointment/<int:pk>/', DeleteAppointment.as_view() , name='delete-appointment'),
 
 ]
 

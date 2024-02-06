@@ -9,7 +9,7 @@ from django.views.generic import(
     UpdateView,
     DeleteView
 ) 
-from .models import Page, HomePageContent
+from .models import Page, HomePageContent, Appointment
 
 def AdminHome(request):
     return render(request, 'admin_panel/base.html')
@@ -44,30 +44,6 @@ class EditPage(UpdateView):
     fields= '__all__'   
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('pages-list')
-    
-# class ListCard(ListView):
-#     model= TopCard 
-#     template_name= 'admin_panel/list-card.html'
-    
-#     def get(self, request):
-#         cards = TopCard.objects.all()
-#         my_dict = {
-#             'cards': cards
-#         }
-#         return render(request, 'admin_panel/list-card.html', my_dict )
-    
-# class CreateCard(CreateView):
-#     template_name= 'admin_panel/add-card.html'
-#     model = TopCard
-#     fields= '__all__'
-#     success_url = reverse_lazy('cards-list')
-    
-# class EditCard(UpdateView):
-#     model= TopCard
-#     template_name= 'admin_panel/edit-card.html'
-#     fields= '__all__'   
-#     pk_url_kwarg= 'pk'
-#     success_url = reverse_lazy('cards-list')
 
 # --------HomePage Content----------
 class HomeList(ListView):
@@ -93,3 +69,34 @@ class HomeEdit(UpdateView):
     fields= '__all__'   
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('list')
+
+#--------------- Appointment---------------------  
+class ListAppointment(ListView):
+    model= Appointment 
+    template_name= 'admin_panel/list-appointment.html'
+    
+    def get(self, request):
+        appointments = Appointment.objects.all()
+        my_dict = {
+            'appointments': appointments
+        }
+        return render(request, 'admin_panel/list-appointment.html', my_dict )
+    
+class CreateAppointment(CreateView):
+    template_name= 'admin_panel/add-appointment.html'
+    model = Appointment
+    fields= '__all__'
+    success_url = reverse_lazy('appointment-list')
+    
+class EditAppointment(UpdateView):
+    model= Appointment
+    template_name= 'admin_panel/edit-appointment.html'
+    fields= '__all__'   
+    pk_url_kwarg= 'pk'
+    success_url = reverse_lazy('appointment-list')
+    
+class DeleteAppointment(DeleteView):
+    model = Appointment
+    pk_url_kwarg= 'pk'
+    success_url = reverse_lazy('appointment-list')
+    template_name= 'admin_panel/delete-appointment.html'

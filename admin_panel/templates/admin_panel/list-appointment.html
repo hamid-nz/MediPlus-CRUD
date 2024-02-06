@@ -9,23 +9,27 @@
     <thead>
         <tr>
             <th>Sr.</th>
-            <th>Title</th>
-            <th>Discription</th>
-            <th>Published on</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Msg</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>  
-        {% for page in pages %}
+        {% for i in appointments %}
         <tr>
-            <td>{{page.id}}</td>
-            <td>{{page.title | truncatewords:5}}</td>
-            <td>{{page.discription | truncatewords:5}}</td>
-            <td>{{page.published_date}}</td>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.message | truncatewords:5}}</td>
             <td>
-                <a href="{% url 'edit-page' page.pk %}"><i class="fas fa-edit"></i>
+                <a href="{% url 'edit-appointment' i.pk %}"><i class="fas fa-edit"></i>
                 </a>
-                <a href="{% url 'delete-page' page.pk %}"><i class="fas fa-trash-alt"></i>
+                <a href="{% url 'delete-appointment' i.pk %}"><i class="fas fa-trash-alt"></i>
                 </a>
             </td>
         </tr>  
