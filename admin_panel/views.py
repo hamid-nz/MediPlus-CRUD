@@ -9,7 +9,7 @@ from django.views.generic import(
     UpdateView,
     DeleteView
 ) 
-from .models import Page, TopCard
+from .models import Page, TopCard, HomePageContent
 
 def AdminHome(request):
     return render(request, 'admin_panel/base.html')
@@ -45,101 +45,27 @@ class EditPage(UpdateView):
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('pages-list')
     
-# TopCards -----------
-class ListView(ListView):
+# ------TopCards -----------
+class ListCard(ListView):
     model= TopCard 
-    template_name= 'admin_panel/list.html'
+    template_name= 'admin_panel/list-card.html'
     
     def get(self, request):
         cards = TopCard.objects.all()
         my_dict = {
             'cards': cards
         }
-        return render(request, 'admin_panel/list.html', my_dict )
+        return render(request, 'admin_panel/list-card.html', my_dict )
     
-class CreateView(CreateView):
-    template_name= 'admin_panel/add.html'
+class CreateCard(CreateView):
+    template_name= 'admin_panel/add-card.html'
     model = TopCard
     fields= '__all__'
+    success_url = reverse_lazy('cards-list')
+
+# --------HomePage Content----------
+class CreateView(CreateView):
+    template_name= 'admin_panel/add.html'
+    model = HomePageContent
+    fields= '__all__'
     success_url = reverse_lazy('list')
-    
-    def form_valid(self, form):
-        # Custom logic for the first form
-        return super().form_valid(form)
-
-
-
-
-
-
-
-
-
-
-# from django.views.generic import (
-#     CreateView,
-#     DetailView,
-#     UpdateView,
-#     ListView,
-#     DeleteView
-# )
-# from django.contrib import messages
-# from .forms import JobForm
-# from .models import Job
-
-
-
-# class CreateJobView(CreateView):
-#     model = Job
-#     form_class = JobForm
-
-#     def form_valid(self, form):
-#         messages.success(self.request, 'Job added successfully.')
-#         return super().form_valid(form)
-
-
-# class JobDetailView(DetailView):
-#     model = Job
-#     context_object_name = 'job'
-#     template_name = 'admin_panel/admin.html'
-
-#     def get(self, request, pk):
-#         job = get_object_or_404(Job, pk=pk)
-
-#         # Check for success messages and pass them to the template
-#         success_messages = messages.get_messages(request)
-#         success_messages_list = [message.message for message in success_messages if message.level == messages.SUCCESS]
-
-#         return render(request, self.template_name, {'job': job, 'success_messages': success_messages_list})
-
-
-# class EditJobView(UpdateView):
-#     model = Job
-#     form_class = JobForm
-
-#     def form_valid(self, form):
-#         messages.success(self.request, 'Job updated successfully.')
-#         return super().form_valid(form)
-
-
-# class JobListView(ListView):
-#     model = Job
-#     template_name = 'admin_panel/job_list.html'
-#     context_object_name = 'jobs'
-
-#     def get(self, request):
-#         # Check for success messages and pass them to the template
-#         success_messages = messages.get_messages(request)
-#         success_messages_list = [message.message for message in success_messages if message.level == messages.SUCCESS]
-#         jobs = Job.objects.all()
-
-#         return render(request, self.template_name, {'jobs': jobs, 'success_messages': success_messages_list})
-
-
-# class DeleteJobView(DeleteView):
-#     model = Job
-#     success_url = reverse_lazy('job_list')
-
-#     def delete(self, request, *args, **kwargs):
-#         messages.success(self.request, 'Job deleted successfully.')
-#         return super().delete(request, *args, **kwargs)

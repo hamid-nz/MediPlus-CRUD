@@ -1,19 +1,15 @@
 {% extends "admin_panel/base.html"%}
 {% block title %} Add New Service {% endblock %}
 {% block body %}  
-
-<div class="container-fluid">
-    <h1>Home Page setting</h1>
-    <form class="home_page_content" action="" method="POST">
+<div class="container">
+    <h1>Create....</h1>
+    <form action="" method="POST">
       {%csrf_token%}
       {{form.as_p}}
       
       <input class="btn btn-primary my-5" type="submit">
 
     </form>
-  </div>
-
-
-
+</div>
 
 {% endblock %}
