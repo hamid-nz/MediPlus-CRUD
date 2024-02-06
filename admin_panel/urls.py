@@ -5,9 +5,9 @@ from .views import (
     ListPage,
     EditPage,
     DeletePage,
-    ListCard, 
-    CreateCard,
-    EditCard,
+    # ListCard, 
+    # CreateCard,
+    # EditCard,
     HomeList,
     HomeCreate,
     HomeEdit
@@ -20,9 +20,9 @@ urlpatterns = [
     path('edit-page/<int:pk>/', EditPage.as_view() , name='edit-page'),
     path('delete-page/<int:pk>/', DeletePage.as_view() , name='delete-page'),
     #Top Cards CRUD
-    path('cards/', ListCard.as_view() , name='cards-list'),
-    path('add-card/', CreateCard.as_view() , name='add-card'),
-    path('edit-card/<int:pk>/', EditCard.as_view() , name='edit-card'),
+    # path('cards/', ListCard.as_view() , name='cards-list'),
+    # path('add-card/', CreateCard.as_view() , name='add-card'),
+    # path('edit-card/<int:pk>/', EditCard.as_view() , name='edit-card'),
     #HomePgeContent CRUD
     path('list/', HomeList.as_view() , name='list'),
     path('add/', HomeCreate.as_view() , name='add'),

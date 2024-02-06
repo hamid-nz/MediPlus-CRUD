@@ -18,13 +18,20 @@ class Page(models.Model):
        
     def __str__ (self):
         return self.title
-
-class TopCard(models.Model):
-     #pk
-     Doctor_name= models.CharField('card text', max_length=100)
-     title= models.CharField('card title', max_length=100) 
-     discription= models.CharField('Discription [short]', max_length=100)
-     DAYS_TYPE = {
+    
+# -----------------------------------------------HOME PAGE CMS--------------------------------------------------
+class HomePageContent(models.Model):
+    #pk
+    title= models.CharField('Site Title', max_length=100)
+    discription= models.CharField('Site Discription', max_length=500 , blank=True)  
+    #Optional content  
+    page_content_1= models.CharField('Content Box 1', max_length=1000 , blank=True)    
+    page_content_2= models.CharField('Content Box 2', max_length=1000 , blank=True) 
+    #TopCards 
+    dctor_name= models.CharField('Doctors Name', max_length=100, blank=True)
+    title= models.CharField('card title', max_length=100, blank=True) 
+    discription= models.CharField('Discription [short]', max_length=100, blank=True)
+    DAYS_TYPE = {
          "Monday":"Mon",
          "Tuesday":"Tue",
          "Wednesday":"Wed",
@@ -33,7 +40,7 @@ class TopCard(models.Model):
          "Saturday":"Sat",
          "Sunday":"Sun",
      }
-     HOURS_TYPE = {
+    HOURS_TYPE = {
          "9:00 AM": "9",
          "10:00 AM":"10",
          "11:00 AM":"11",
@@ -46,20 +53,10 @@ class TopCard(models.Model):
          "6:00 PM":"6",
      }
      
-     working_day_from = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
-     working_day_to = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
-     working_hour_from = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
-     working_hour_to = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
-     def __str__ (self):
-         return self.title
-    
-class HomePageContent(models.Model):
-    #pk
-    title= models.CharField('Site Title', max_length=100)
-    discription= models.CharField('Site Discription', max_length=500 , blank=True)  
-    #Optional content  
-    page_content_1= models.CharField('Content Box 1', max_length=1000 , blank=True)    
-    page_content_2= models.CharField('Content Box 2', max_length=1000 , blank=True) 
+    working_day_from = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_day_to = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_hour_from = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    working_hour_to = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
     #Help Section 1  
     help_box_1_h5= models.CharField('Help Box 1 Heading', max_length=100, default="")    
     help_box_1= models.CharField('Help Box 1', max_length=400, default="") 
