@@ -9,5 +9,5 @@ urlpatterns = [
     
     
     #Remove after complete development
-    path('list/', ListPage.as_view() ),
+    path('base/', ListPage.as_view() ),
 ]

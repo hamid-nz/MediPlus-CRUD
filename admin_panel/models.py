@@ -14,7 +14,7 @@ class Page(models.Model):
     h3= models.CharField('heading 3', max_length=100, blank=True)
     h4= models.CharField('heading 4', max_length=100, blank=True)
     second_content= HTMLField( blank=True)
-    image= models.ImageField(upload_to='img/', blank=True)
+    image= models.ImageField(upload_to='img/', default='')
     url= models.CharField('Slug', max_length=100)
     published_date= models.DateTimeField(default=timezone.now() )
     
