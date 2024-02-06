@@ -9,13 +9,13 @@ from django.views.generic import(
     UpdateView,
     DeleteView
 ) 
-from .models import Page
+from .models import Page, TopCard
 
 def AdminHome(request):
     return render(request, 'admin_panel/base.html')
 
 class CreatePage(CreateView):
-    template_name= 'admin_panel/add-page.html'
+    template_name= 'admin_panel/add.html'
     model = Page
     fields= '__all__'
     success_url = reverse_lazy('pages-list')
@@ -23,7 +23,7 @@ class CreatePage(CreateView):
 
 class ListPage(ListView):
     model= Page
-    template_name= 'admin_panel/pages.html'
+    template_name= 'admin_panel/list-page.html'
     # page_object_list= 'pages_list'
     
     def get(self, request):
@@ -31,23 +31,32 @@ class ListPage(ListView):
         my_dict = {
             'pages': pages
         }
-        return render(request, 'admin_panel/pages.html', my_dict )
+        return render(request, 'admin_panel/list-page.html', my_dict )
 
 class DeletePage(DeleteView):
     model = Page
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('pages-list')
-    template_name= 'admin_panel/confirm-delete.html'
+    template_name= 'admin_panel/delete.html'
     
 class EditPage(UpdateView):
     model= Page
-    template_name= 'admin_panel/edit-page.html'
+    template_name= 'admin_panel/edit.html'
     fields= '__all__'   
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('pages-list')
     
-
-
+# TopCards -----------
+class ListCard(ListView):
+    model= TopCard 
+    template_name= 'admin_panel/list-card.html'
+    
+    def get(self, request):
+        cards = TopCard.objects.all()
+        my_dict = {
+            'cards': cards
+        }
+        return render(request, 'admin_panel/list-card.html', my_dict )
 
 
 

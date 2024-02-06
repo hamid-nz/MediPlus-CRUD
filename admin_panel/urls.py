@@ -4,8 +4,8 @@ from .views import (
     CreatePage, 
     ListPage,
     EditPage,
-    DeletePage
-    
+    DeletePage,
+    ListCard 
 )
 urlpatterns = [
     path('', views.AdminHome, name='AdminHome'),
@@ -13,7 +13,6 @@ urlpatterns = [
     path('pages/', ListPage.as_view() , name='pages-list'),
     path('edit/<int:pk>/', EditPage.as_view() , name='edit-page'),
     path('delete/<int:pk>/', DeletePage.as_view() , name='delete-page'),
-
-    
+    path('card/', ListCard.as_view() , name='card-list'),
 ]
 

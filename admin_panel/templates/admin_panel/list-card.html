@@ -1,0 +1,42 @@
+{% extends "admin_panel/base.html"%}
+{% block title %} List Cards {% endblock %}
+{% block body %} 
+
+<div class="container">
+    <h2>Pages List</h2>
+    <a class="btn btn-primary" style="margin-left: 85%;" href="{% url 'add-page' %}"> <i class="fa-solid fa-plus"></i>Add Page</a>
+      <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Doctor's Name</th>
+                <th>Service Title</th>
+                <th>Day From</th>
+                <th>Day To</th>
+                <th>Hour From</th>
+                <th>Hour To</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>  
+            {% for i in cards %}
+            <tr>
+                <td>{{i.Doctor_name}}</td>
+                <td>{{i.title }}</td>
+                <td>{{i.working_day_from }}</td>
+                <td>{{i.working_day_to }}</td>
+                <td>{{i.working_hour_from }}</td>
+                <td>{{i.working_hour_to }}</td>
+                {% comment %} <td>
+                    <a href="{% url 'edit-page' page.pk %}"><i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{% url 'delete-page' page.pk %}"><i class="fas fa-trash-alt"></i>
+                    </a>
+                </td> {% endcomment %}
+            </tr>  
+            {% endfor %}
+            <tbody>
+      </table>
+    </div>
+    
+
+{% endblock %}
