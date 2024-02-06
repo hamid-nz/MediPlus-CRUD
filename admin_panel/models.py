@@ -60,6 +60,15 @@ class HomePageContent(models.Model):
     #Optional content  
     page_content_1= models.CharField('Content Box 1', max_length=1000 , blank=True)    
     page_content_2= models.CharField('Content Box 2', max_length=1000 , blank=True) 
+    #Help Section 1  
+    help_box_1_h5= models.CharField('Help Box 1 Heading', max_length=100, default="")    
+    help_box_1= models.CharField('Help Box 1', max_length=400, default="") 
+    #Help Section 2  
+    help_box_2_h5= models.CharField('Help Box 2 Heading', max_length=100, default="")    
+    help_box_2= models.CharField('Help Box 2', max_length=400, default="") 
+    #Help Section 3  
+    help_box_3_h5= models.CharField('Help Box 3 Heading', max_length=100, default="")    
+    help_box_3= models.CharField('Help Box 3', max_length=400, default="") 
     #Hospital Info (homepage)   
     hospital_rooms= models.CharField('Hospital Rooms', max_length=100 )    
     specialist_doctors= models.CharField('Specialist Doctors', max_length=100 )    
@@ -86,4 +95,4 @@ class HomePageContent(models.Model):
     
     def __str__ (self):
          return self.title
-
+    

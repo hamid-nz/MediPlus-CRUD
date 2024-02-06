@@ -26,12 +26,10 @@
                 <td>{{i.working_day_to }}</td>
                 <td>{{i.working_hour_from }}</td>
                 <td>{{i.working_hour_to }}</td>
-                {% comment %} <td>
-                    <a href="{% url 'edit-page' page.pk %}"><i class="fas fa-edit"></i>
+                <td class="text-center" >
+                    <a href="{% url 'edit-card' i.pk %}"><i class="fas fa-edit"></i>
                     </a>
-                    <a href="{% url 'delete-page' page.pk %}"><i class="fas fa-trash-alt"></i>
-                    </a>
-                </td> {% endcomment %}
+                </td>
             </tr>  
             {% endfor %}
             <tbody>

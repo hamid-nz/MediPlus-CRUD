@@ -62,10 +62,35 @@ class CreateCard(CreateView):
     model = TopCard
     fields= '__all__'
     success_url = reverse_lazy('cards-list')
+    
+class EditCard(UpdateView):
+    model= TopCard
+    template_name= 'admin_panel/edit-card.html'
+    fields= '__all__'   
+    pk_url_kwarg= 'pk'
+    success_url = reverse_lazy('cards-list')
 
 # --------HomePage Content----------
-class CreateView(CreateView):
+class HomeList(ListView):
+    model= HomePageContent 
+    template_name= 'admin_panel/list.html'
+    
+    def get(self, request):
+        home = HomePageContent.objects.all()
+        my_dict = {
+            'home': home
+        }
+        return render(request, 'admin_panel/list.html', my_dict )
+ 
+class HomeCreate(CreateView):
     template_name= 'admin_panel/add.html'
     model = HomePageContent
     fields= '__all__'
+    success_url = reverse_lazy('list')
+
+class HomeEdit(UpdateView):
+    model= HomePageContent
+    template_name= 'admin_panel/edit.html'
+    fields= '__all__'   
+    pk_url_kwarg= 'pk'
     success_url = reverse_lazy('list')
