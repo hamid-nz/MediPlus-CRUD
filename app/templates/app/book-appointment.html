@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}	
+{% load static %}	
+{% block title %}Schedule an Appointment{% endblock %}
+{% block body %}
+
+<h2 class='text-center my-4'>We Are Always Ready to Help You. Book An Appointment</h2>
+
+
+<div class="container">
+    <form action="" method="POST">
+      {%csrf_token%}
+      {{form.as_p}}
+      <p>( We will confirm by a Text Message )</p>
+      <input class="btn btn-primary my-5" type="submit">
+    </form>
+    
+</div>
+
+
+{% endblock %}
