@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('app.urls')),    
     path('super-admin/', admin.site.urls,  name='super-admin'),
     path('admin/', include('admin_panel.urls')),
-    path('tinymce/', include('tinymce.urls')),  
+    path('ckeditor/', include('ckeditor_uploader.urls') )
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
