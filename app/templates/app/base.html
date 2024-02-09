@@ -90,7 +90,11 @@
                                     <li><a href="#">Services </a></li>
                                     <li><a href="#">Treatments <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
-										
+										{% for i in pages %}	
+											<li>
+												<a href="treatment/{{i.url}}" class="btn">{{i.title}}</a>
+										    </li>						
+										{% endfor %}	
                                         </ul>
                                     </li>
                                     <li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>

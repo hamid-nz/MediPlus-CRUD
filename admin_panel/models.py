@@ -1,5 +1,4 @@
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
 
 class Page(models.Model):
@@ -8,10 +7,10 @@ class Page(models.Model):
     discription= models.CharField('page_discription', max_length=500 , blank=True)
     discriptive_image= models.ImageField(upload_to='img/', blank=True)
     h2= models.CharField('heading 2', max_length=100, blank=True)
-    content= RichTextUploadingField(blank=True)
+    content= models.CharField('content', max_length=500, blank=True)
     h3= models.CharField('heading 3', max_length=100, blank=True)
     h4= models.CharField('heading 4', max_length=100, blank=True)
-    second_content= RichTextUploadingField( blank=True)
+    second_content= models.CharField('second content', max_length=500, blank=True)
     image= models.ImageField(upload_to='img/', blank=True, default='')
     url= models.CharField('Slug', max_length=100)
     published_date= models.DateTimeField(default=timezone.now() )
@@ -27,10 +26,70 @@ class HomePageContent(models.Model):
     #Optional content  
     page_content_1= models.CharField('Content Box 1', max_length=1000 , blank=True)    
     page_content_2= models.CharField('Content Box 2', max_length=1000 , blank=True) 
-    #TopCards 
-    dctor_name= models.CharField('Doctors Name', max_length=100, blank=True)
-    title= models.CharField('card title', max_length=100, blank=True) 
-    discription= models.CharField('Discription [short]', max_length=100, blank=True)
+    
+    #TopCards_1
+    doctor_name_1= models.CharField('Doctors Name', max_length=100, blank=True)
+    title_1= models.CharField('card title', max_length=100, blank=True) 
+    discription_1= models.CharField('Discription [short]', max_length=100, blank=True)
+    DAYS_TYPE = {
+         "Monday":"Mon",
+         "Tuesday":"Tue",
+         "Wednesday":"Wed",
+         "Thursday":"Thurs",
+         "Friday":"Fri",
+         "Saturday":"Sat",
+         "Sunday":"Sun",
+     }
+    HOURS_TYPE = {
+         "9:00 AM": "9",
+         "10:00 AM":"10",
+         "11:00 AM":"11",
+         "12:00 AM":"12",
+         "1:00 PM":"1",
+         "2:00 PM":"2",
+         "3:00 PM":"3",
+         "4:00 PM":"4",
+         "5:00 PM":"5",
+         "6:00 PM":"6",
+     }     
+    working_day_from_1 = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_day_to_1 = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_hour_from_1 = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    working_hour_to_1 = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    
+    #TopCards_2
+    doctor_name_2= models.CharField('Doctors Name', max_length=100, blank=True)
+    title_2= models.CharField('card title', max_length=100, blank=True) 
+    discription_2= models.CharField('Discription [short]', max_length=100, blank=True)
+    DAYS_TYPE = {
+         "Monday":"Mon",
+         "Tuesday":"Tue",
+         "Wednesday":"Wed",
+         "Thursday":"Thurs",
+         "Friday":"Fri",
+         "Saturday":"Sat",
+         "Sunday":"Sun",
+     }
+    HOURS_TYPE = {
+         "9:00 AM": "9",
+         "10:00 AM":"10",
+         "11:00 AM":"11",
+         "12:00 AM":"12",
+         "1:00 PM":"1",
+         "2:00 PM":"2",
+         "3:00 PM":"3",
+         "4:00 PM":"4",
+         "5:00 PM":"5",
+         "6:00 PM":"6",
+     }     
+    working_day_from_2 = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_day_to_2 = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_hour_from_2 = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    working_hour_to_2 = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    #TopCards3
+    doctor_name_3= models.CharField('Doctors Name', max_length=100, blank=True)
+    title_3= models.CharField('card title', max_length=100, blank=True) 
+    discription_3= models.CharField('Discription [short]', max_length=100, blank=True)
     DAYS_TYPE = {
          "Monday":"Mon",
          "Tuesday":"Tue",
@@ -52,11 +111,11 @@ class HomePageContent(models.Model):
          "5:00 PM":"5",
          "6:00 PM":"6",
      }
-     
-    working_day_from = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
-    working_day_to = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
-    working_hour_from = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
-    working_hour_to = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    working_day_from_3 = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_day_to_3 = models.CharField(blank=True, choices=DAYS_TYPE, max_length=10)
+    working_hour_from_3 = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    working_hour_to_3 = models.CharField(blank=True, choices=HOURS_TYPE, max_length=10)
+    
     #Help Section 1  
     help_box_1_h5= models.CharField('Help Box 1 Heading', max_length=100, default="")    
     help_box_1= models.CharField('Help Box 1', max_length=400, default="") 
