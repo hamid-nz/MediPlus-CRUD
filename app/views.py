@@ -14,21 +14,23 @@ from django.views.generic import(
 # Create your views here.
 
 class Home(ListView):
-    model= HomePageContent  
-    template_name = 'app/home.html'
+    model= HomePageContent, Page 
     
     def get(self, request):
         homepagecontent = HomePageContent.objects.all()
+        pages = Page.objects.all()
+        template_names = [
+        'app/home.html', 
+        'app/base.html', 
+        ]
         my_dict = {
-            'homepagecontent': homepagecontent
+            'homepagecontent': homepagecontent,
+            'pages': pages
         }
         return render(request, 'app/home.html', my_dict )
 class Contact(TemplateView):
     template_name = 'app/contact.html'
       
-class ListPage(ListView):
-    model= Page
-    template_name = 'app/base.html'
 
 class ScheduleAppointment(CreateView):
     model= Appointment
