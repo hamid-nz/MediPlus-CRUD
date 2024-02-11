@@ -23,6 +23,15 @@ class HomePageContent(models.Model):
     #pk
     title= models.CharField('Site Title', max_length=100)
     discription= models.CharField('Site Discription', max_length=500 , blank=True)  
+    #Slider 1
+    heading_slider_1= models.CharField('Heading Slider 1', max_length=100, blank=True)
+    text_slider_1= models.CharField('text slider 1', max_length=500 , blank=True)  
+    #Slider 2
+    heading_slider_2= models.CharField('Heading Slider 2', max_length=100, blank=True)
+    text_slider_2= models.CharField('text slider 2', max_length=500 , blank=True)  
+    #Slider 3
+    heading_slider_3= models.CharField('Heading Slider 3', max_length=100, blank=True)
+    text_slider_3= models.CharField('text slider 3', max_length=500 , blank=True)  
     #Optional content  
     page_content_1= models.CharField('Content Box 1', max_length=1000 , blank=True)    
     page_content_2= models.CharField('Content Box 2', max_length=1000 , blank=True) 

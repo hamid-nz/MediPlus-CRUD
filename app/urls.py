@@ -5,7 +5,7 @@ from .views import Home, Contact, ScheduleAppointment
 urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('contact/', Contact.as_view() ),
-    path('appointment/', ScheduleAppointment.as_view() ),
+    path('appointment/', ScheduleAppointment.as_view(), name='appointment'),
     path('treatment/<slug:url>/', views.PageDetail, name='page-detail'),
     
     
