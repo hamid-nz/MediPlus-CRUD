@@ -27,15 +27,45 @@
             <td>{{i.batch_1_price}}</td>
             <td>{{i.batch_1_content| truncatewords:5}}</td>
         </tr>
+        
         <tr>
             <td>{{i.batch_2_heading}}</td>
             <td>{{i.batch_2_price}}</td>
             <td>{{i.batch_2_content| truncatewords:5}}</td>
+            
         </tr>
         <tr>
             <td>{{i.batch_3_heading}}</td>
             <td>{{i.batch_3_price}}</td>
             <td>{{i.batch_3_content| truncatewords:5}}</td>
+        </tr>
+        <tr class="bg-secondary text-white">
+            <th>Doctors Name</th>
+            <th>Card Title</th>
+            <th>Discription</th>
+            <th>Working Days</th>
+            <th>Working Hour</th>
+        </tr>
+        <tr>
+            <td>{{i.doctor_name_1}}</td>
+            <td>{{i.title_1}}</td>
+            <td>{{i.discription_1| truncatewords:3}}</td>
+            <td>{{i.working_day_from_1}} - {{i.working_day_to_1}}</td>
+            <td>{{i.working_hour_from_1}} - {{i.working_hour_to_1}}</td>
+        </tr>
+        <tr>
+            <td>{{i.doctor_name_2}}</td>
+            <td>{{i.title_2}}</td>
+            <td>{{i.discription_2| truncatewords:3}}</td>
+            <td>{{i.working_day_from_2}} - {{i.working_day_to_2}}</td>
+            <td>{{i.working_hour_from_2}} - {{i.working_hour_to_2}}</td>
+        </tr>
+        <tr>
+            <td>{{i.doctor_name_3}}</td>
+            <td>{{i.title_3}}</td>
+            <td>{{i.discription_3| truncatewords:3}}</td>
+            <td>{{i.working_day_from_3}} - {{i.working_day_to_3}}</td>
+            <td>{{i.working_hour_from_3}} - {{i.working_hour_to_3}}</td>
         </tr>
         <tr class="bg-secondary text-white">
             <th>Hospital Rooms</th>
@@ -65,6 +95,20 @@
         <tr>
             <td>{{i.emergency_section_h3}}</td>
             <td>{{i.emergency_section_content| truncatewords:5}}</td>
+        </tr>
+        <tr class="bg-secondary text-white">
+            <th>Facebook</th>
+            <th>Google +</th>
+            <th>Twitter</th>
+            <th>Linkedin</th>
+            <th>Pinterest </th>
+        </tr>
+        <tr>
+            <td>{{i.facebook| truncatechars:10 }}</td>
+            <td>{{i.google| truncatechars:10 }}</td>
+            <td>{{i.twitter| truncatechars:10 }}</td>
+            <td>{{i.linkedin| truncatechars:10 }}</td>
+            <td>{{i.pinterest| truncatechars:10 }}</td>
         </tr>
 
         {% endfor %}

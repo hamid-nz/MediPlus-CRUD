@@ -148,6 +148,13 @@ class HomePageContent(models.Model):
     batch_3_heading= models.CharField('batch 3 heading', max_length=100 , blank=True) 
     batch_3_price= models.CharField('batch 3 price', max_length=100 , blank=True) 
     batch_3_content= models.CharField('batch 3 content', max_length=1000 , blank=True) 
+    #Social Links 
+    facebook= models.CharField('facebook link', max_length=1000 , blank=True) 
+    google= models.CharField('google +', max_length=1000 , blank=True) 
+    twitter= models.CharField('twitter link', max_length=1000 , blank=True) 
+    linkedin= models.CharField('linkedin link', max_length=1000 , blank=True) 
+    pinterest= models.CharField('pinterest link', max_length=1000 , blank=True) 
+    
     
     def __str__ (self):
          return self.title
