@@ -14,6 +14,10 @@ from .views import (
     DeleteAppointment,
 )
 urlpatterns = [
+
+    path('sign-in/', views.sign_in, name='sign-in'),
+    path('sign-out/', views.sign_out, name='sign-out'),   
+
     # pages CRUD
     path('', views.AdminHome, name='AdminHome'),
     path('add-page/', CreatePage.as_view() , name='add-page'),

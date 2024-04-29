@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 class Page(models.Model):
     #pk
@@ -13,7 +14,7 @@ class Page(models.Model):
     second_content= models.CharField('second content', max_length=500, blank=True)
     image= models.ImageField(upload_to='img/', blank=True, default='')
     url= models.CharField('Slug', max_length=100)
-    published_date= models.DateTimeField(default=timezone.now() )
+    published_date= models.DateTimeField(auto_now_add=True, blank=True)
        
     def __str__ (self):
         return self.title
@@ -172,7 +173,7 @@ class Appointment(models.Model):
     #pk
     name= models.CharField('Name', max_length=100, blank=True)
     email= models.EmailField('E Mail', max_length=100, default="")
-    phone= models.IntegerField('Phone', max_length=11, default="")
+    phone= models.IntegerField('Phone', default="")
     DEPARTMENT = {
         "Dentistry": "dentistry",
         "Crdiology": "cardiology",

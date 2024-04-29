@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from . import views
@@ -10,6 +10,28 @@ from django.views.generic import(
     DeleteView
 ) 
 from .models import Page, HomePageContent, Appointment
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
+
+
+def sign_in(request):
+    if request.method == 'POST':
+        username= request.POST.get('username')
+        password= request.POST.get('password')
+        user= authenticate(request, username= username, password= password)
+        if user is not None:
+            login(request, user)
+            return redirect(AdminHome)
+        else:
+            return HttpResponse(" <h3>Username or Password is incorrect! Try again </h3>")
+    
+    return render (request, 'admin_panel/login.html')
+
+# End of Authentication
+
+@login_required(login_url='sign-in')
 
 def AdminHome(request):
     return render(request, 'admin_panel/base.html')
@@ -100,3 +122,9 @@ class DeleteAppointment(DeleteView):
     pk_url_kwarg= 'pk'
     success_url = reverse_lazy('appointment-list')
     template_name= 'admin_panel/delete-appointment.html'
+
+
+   
+def sign_out(request):
+     logout(request)
+     return redirect('sign-in')
